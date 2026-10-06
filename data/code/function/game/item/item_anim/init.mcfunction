@@ -1,0 +1,1 @@
+# Animate obtaining item (common item animation)

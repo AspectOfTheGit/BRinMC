@@ -1,0 +1,1 @@
+# called when player chooses to shoot self
