@@ -32,8 +32,12 @@ data modify storage buckshot:game item_slots append value "1.250 0.500 -0.650"
 data modify storage buckshot:game item_slots append value "1.250 0.500 -0.950"
 
 # scores
-scoreboard players set .max_players const 4
+execute store result score .max_players const if data storage buckshot:game slots[]
+scoreboard players set .min_players const 1
 
 #> Base Entities
 kill @e[tag=baseEntity]
 summon marker 0.5 60.5 0.5 {Tags:["baseEntity"],UUID:[I;0,0,0,0]}
+
+#> Functions
+function code:misc/world_desc/init

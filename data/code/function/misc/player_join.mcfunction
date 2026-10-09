@@ -4,4 +4,8 @@ scoreboard players set @s leave 0
 tag @s remove inQueue
 tag @s remove playing
 
+attribute @s minecraft:jump_strength base reset
+
+function code:misc/queue/remove with entity @s
+
 gamemode spectator
