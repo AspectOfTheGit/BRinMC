@@ -7,7 +7,7 @@ kill @e[type=mannequin,tag=mannequin]
 
 #> start new game
     # queue dispatch adds players to the game and teleports them to their positions
-function code:misc/queue/dispatch/init
+execute unless function code:misc/queue/dispatch/init run return run schedule function code:game/start/init 1s
     # initialise players by adding attributes, creating their variables in storage, etc. in order of slot
 scoreboard players set .temp temp 0
 function code:game/start/_loop_player_slot

@@ -13,3 +13,7 @@ function code:game/round/init_defib with storage buckshot:game temp
 title @a title ""
 title @a times 0 10 40
 title @a subtitle [{color:red,text:"ROUND "},{color:red,score:{name:".round",objective:var}}]
+# TODO - add playsound here for round start
+
+    # load shotgun and start player's turn
+function code:game/turn/load/init
