@@ -2,6 +2,7 @@
 
 #> clear old game
 data remove storage buckshot:game game
+scoreboard players reset @a slot
 tp @e[type=mannequin,tag=mannequin] 0.50 56.00 0.50
 kill @e[type=mannequin,tag=mannequin]
 

@@ -1,5 +1,6 @@
 # as player joins the world
 scoreboard players set @s leave 0
+scoreboard players reset @s slot
 
 team join player
 
