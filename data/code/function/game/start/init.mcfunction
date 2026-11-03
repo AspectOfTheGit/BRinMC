@@ -2,6 +2,8 @@
 
 #> clear old game
 data remove storage buckshot:game game
+tp @e[type=mannequin,tag=mannequin] 0.50 56.00 0.50
+kill @e[type=mannequin,tag=mannequin]
 
 #> start new game
     # queue dispatch adds players to the game and teleports them to their positions
@@ -11,4 +13,8 @@ scoreboard players set .temp temp 0
 function code:game/start/_loop_player_slot
 
     # round variables
-data modify storage buckshot:game game.round set value {shotgun:{shells:[],sawed:false},max_charges:-99}
+data modify storage buckshot:game game.round set value {shotgun:{shells:[],sawed:false},turn_order_swapped:false}
+scoreboard players set .round var 0
+scoreboard players set .turn var 0
+
+schedule function code:game/round/init 1s

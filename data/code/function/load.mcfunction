@@ -1,17 +1,20 @@
 
 tellraw @a {color:"#00FF00",text:"Shotgun is load"}
 
-#> Scoreboards
+
+    #> Scoreboards
 
 # System
 scoreboard objectives add temp dummy
 scoreboard objectives add const dummy
+scoreboard objectives add var dummy
 # Player
 scoreboard objectives add leave minecraft.custom:minecraft.leave_game
 scoreboard objectives add pid dummy
 scoreboard objectives add slot dummy
 
-#> Constants
+
+    #> Constants (CONFIG)
 
 # spaces for players to play
 data remove storage buckshot:game slots
@@ -33,11 +36,50 @@ data modify storage buckshot:game item_slots append value "1.250 0.500 -0.950"
 
 # scores
 execute store result score .max_players const if data storage buckshot:game slots[]
+    # this should be 2. It is set to 1 only for development.
 scoreboard players set .min_players const 1
+scoreboard players set .min_random_charges const 2
+scoreboard players set .max_random_charges const 4
 
-#> Base Entities
+
+    #> Gamerules
+
+gamerule advance_time false
+gamerule advance_weather false
+gamerule block_drops false
+gamerule drowning_damage false
+gamerule entity_drops false
+gamerule fall_damage false
+gamerule fire_damage false
+gamerule freeze_damage false
+gamerule immediate_respawn true
+gamerule keep_inventory true
+gamerule locator_bar false
+gamerule mob_drops false
+gamerule mob_griefing false
+gamerule player_movement_check false
+#gamerule send_command_feedback false
+gamerule spawn_mobs false
+gamerule spawn_monsters false
+gamerule spawn_patrols false
+gamerule spawn_phantoms false
+gamerule spawn_wandering_traders false
+gamerule spawn_wardens false
+gamerule spectators_generate_chunks false
+gamerule spread_vines false
+gamerule tnt_explodes false
+
+
+    #> Teams
+
+team add player
+team modify player collisionRule never
+team modify player friendlyFire false
+team modify player nametagVisibility never
+team modify player seeFriendlyInvisibles false
+
+
+    #> Base Entities
+
 kill @e[tag=baseEntity]
 summon marker 0.5 60.5 0.5 {Tags:["baseEntity"],UUID:[I;0,0,0,0]}
-
-#> Functions
-function code:misc/world_desc/init

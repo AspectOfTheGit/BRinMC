@@ -1,6 +1,8 @@
 # as player joins the world
 scoreboard players set @s leave 0
 
+team join player
+
 tag @s remove inQueue
 tag @s remove playing
 
