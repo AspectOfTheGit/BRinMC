@@ -1,4 +1,6 @@
-# shuffle shells in the shotgun. copy `game.round.shotgun.shells` to `temp.shells` first.
+# shuffle shells in the shotgun.
+
+data modify storage buckshot:game temp.shells set from storage buckshot:game game.round.shotgun.shells
 
 execute \
     store result storage buckshot:game temp.temp int 1 \
